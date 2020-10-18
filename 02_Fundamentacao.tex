@@ -122,7 +122,7 @@ Fazendo um breve estudo sobre neurociência e analisando um trabalho analítico 
 E também em um experimento recente realizado no artigo \cite{Fapesp192}, é evidenciado que o cérebro humano possui atualmente 86 bilhões de neurônios interconectados, e que sua capacidade de aprendizado e habilidades evolutivas também vêm aumentando em conjunto com seu número de neurônios e topologia de rede neural biológica, e que há 30 milhões de anos atrás nós homos sapiens, tínhamos apenas 2,5 bilhões de neurônios.
 
 %\paragraph*{Neuronio Artifical - MCP}
-Warren McCulloch e Walter Pitts em 1942 observando o neurônio biológico iniciam a busca de um modelo computacional do mesmo. McCuloch era psiquiatra e neuroanatomista e passou cerca de 20 anos refletindo e estudando sobre a representação do sistema nervoso, em 1942 ele convidou Pitts, que era matemático, para fazer parte das suas pesquisas. Em 1943 lançaram o artigo "A Logical Calculus of the Ideas Immanent in Nervous Activity." chegando em um modelo matemático do neurônio artificial: 
+Warren McCulloch e Walter Pitts em 1942 observando o neurônio biológico iniciam a busca de um modelo computacional do mesmo. McCuloch era psiquiatra e neuroanatomista e passou cerca de 20 anos refletindo e estudando sobre a representação do sistema nervoso, em 1942 ele convidou Pitts, que era matemático, para fazer parte das suas pesquisas. Em 1943 lançaram o artigo "A Logical Calculus of the Ideas Immanent in Nervous Activity." chegando em um modelo matemático do neurônio artificial. 
 
             \begin{figure}[H]
                 \center{
@@ -132,7 +132,7 @@ Warren McCulloch e Walter Pitts em 1942 observando o neurônio biológico inicia
                 \caption{Neuronio Artificial.} \subcaption*{ Fonte: \url{http://redesneuraisartificiais.blogspot.com/2010/10/o-primeiro-modelo-de-um-neuronio-criado.html}} \label{fig:NeuronioArtificial} }
             \end{figure}
 
-Assim como no neurônio biológico, o modelo de neurônio artificial da figura \ref{fig:NeuronioArtificial} reage à um vetor de entradas $x_0$ à $x_2$ onde tem suas sinapses representadas por pesos numéricos $wj_0$ à $wj_2$, com uma soma ponderada dessas entradas que é controlada por uma função de transferência ou função de ativação, determinando se essa soma é maior que um valor numérico. Se essa soma for satisfatória o neurônio é ativado emitindo um valor de saída 1, caso contrário se emite um valor de saída 0.
+Assim como no neurônio biológico, o modelo de neurônio artificial da figura \ref{fig:NeuronioArtificial} proposto por McCulloch e Pits, denominado MCP, reage à um vetor de entradas $x_0$ à $x_2$ onde tem suas sinapses representadas por pesos numéricos $wj_0$ à $wj_2$, com uma soma ponderada dessas entradas que é controlada por uma função de transferência ou função de ativação, determinando se essa soma é maior que um valor numérico. Se essa soma for satisfatória o neurônio é ativado emitindo um valor de saída 1, caso contrário se emite um valor de saída 0.
 Todo o funcionamento deste modelo então é reduzido a responder se a soma recebida é maior que um valor numérico esperado. Contudo, associado a este neurônio não foi proposto uma forma automática para ajuste dos pesos, ou seja, não há um algoritmo de aprendizagem que possa treinar e tornar o neurônio viável para a solução de um problema \cite{Haykin1994}.
         
 \subsection{O Perceptron}
@@ -155,7 +155,7 @@ Então em 1969, Marvin Mjinsky e Seymour Papert realizaram uma publicação comp
     		  	
     		  \end{figure}
 	  	
-	  	    Em 1986 James McClelland e David Rumelhart proporam o método de desenvolvimento de uma rede neural de perceptrons, tangendo mais ainda a inspiração da solução no cérebro humano. O processo resume o treinamento do perceptron simples aplicado à um conjunto de perceptrons interligados, e assim solucionando problemas complexos que podem ser resolvidos com uma combinação de soluções.
+	  	    Em 1986 James McClelland e David Rumelhart proporam o método de desenvolvimento de uma rede neural de perceptrons, tangendo mais ainda a inspiração da solução no cérebro humano. O processo resume o treinamento do perceptron simples aplicado à um conjunto de perceptrons interligados, e assim solucionando problemas complexos que podem ser resolvidos com uma combinação de soluções, e assim como na figura \ref{fig:doisPerceptrons}, uma rede de 2 perceptrons podem solucionar a separação dos conjuntos, combinando as soluções lineares de cada perceptron.
 	  	  
   	  	  \begin{figure}[H]
   	  	  	\center{
@@ -187,7 +187,7 @@ Então em 1969, Marvin Mjinsky e Seymour Papert realizaram uma publicação comp
 			
 		     Em algumas literaturas o bias pode ser reduzido a um peso $W_0$ com entrada $X_0$ fixo em 1 no neurônio, a representação gráfica da topologia pode mudar, mas no somatório de saída, o calculo continua o mesmo.
 		
-		     A função de ativação $\delta$ se apresenta de forma linear ou não linear, determinando a saída de um neurônio a partir do seu potencial de ativação. 
+		     A função de ativação $\delta$ se apresenta de forma linear ou não linear, determinando a saída de um neurônio a partir do seu potencial de ativação, a figura \ref{fig:activation_functions} ilustra as funções de ativação mais utilizadas nos conceitos e experimentos realizados na literatura de \cite{MCAI}.
 		
 		     \begin{figure}[H]
         	\center{
@@ -198,7 +198,15 @@ Então em 1969, Marvin Mjinsky e Seymour Papert realizaram uma publicação comp
 		
 		     A função de ativação dá a capacidade do perceptron. quando conectado em rede, de resolver problemas lineares e não lineares, agregando adaptação e improviso ao resolver programas que não estão contidos em seus dados de alimentação.
              
-             Especificamente neste trabalho, a função ReLu ganha destaque para utilização em neurônios nas camadas ocultas da rede neural, por ser simples e eficiente para a aplicação nos experimentos, visto que na fase feed-forward tem efeito parecido com a função identidade, e na fase feed-backward durante o reajuste dos pesos pelo otimizador, produz efeito degrau zerando valores negativos e sendo adequada na aplicação do domínio de entrada deste trabalho, visto que todas as variáveis endógenas e exógenas não possuem valores negativos. Já a função linear ganha destaque para aplicação no neurônio de saída que determina o valor da predição de demanda, pois na fase feed-backward do reajuste dos pesos pelo algoritmo de treino backpropagation, a derivada da função linear se torna zero, mantendo a execução do algoritmo de treino transformando apenas os valores de entrada e valores das camadas ocultas das redes, sem interferir no valor de saída.
+             Nos parâmetros de previsão de consumo no ICT Unifesp, a função ReLu ganha destaque para utilização em neurônios nas camadas ocultas da rede neural, por ser simples e eficiente para a aplicação nos experimentos, visto que na fase feed-forward tem efeito parecido com a função identidade, e na fase feed-backward durante o reajuste dos pesos pelo otimizador, conforme ilustrado na figura \ref{fig:ReLu}, sua derivada produz efeito degrau zerando valores negativos e sendo adequada na aplicação do domínio destes parâmetros, visto que todas as variáveis endógenas e exógenas utilizadas como parâmetros de predição, como por exemplo pressão atmosférica, vendas e consumo de dias anteriores, datas, entre outros, não possuem valores negativos. Já a função linear ganha destaque para aplicação no neurônio de saída que determina o consumo previsto para uma data no futuro, pois na fase feed-backward do reajuste dos pesos pelo algoritmo de treino backpropagation, a derivada da função linear se torna zero, fazendo com que o algoritmo de treino transforme apenas os pesos sinápticos dos parâmetros de entrada os pesos sinápticos dos neurônios nas camadas ocultas da rede, sem interferir no neurônio de saída.
+             
+              \begin{figure}[H]
+        	\center{
+        		\includegraphics[width=\textwidth] {./Figuras/RELU.png}
+        	
+        	\caption{Derivada da função ReLu} 
+        	} \label{fig:ReLu}
+        \end{figure}
 			
 		  %\paragraph*{Perceptron - Treino Supervisionado}
 \cite{Almeida2013} cita em sua análise que o processo de aprendizado do perceptron pode ocorrer de forma supervisionada quando o neurônio deve aprender a relacionar um conjunto observado de variáveis à um valor observado de saída deste mesmo conjunto. O neurônio recebe os sinais de entrada $Xi$ e produz uma saída $Yi$ através do combinador linear e função $\delta$ de ativação; compara essa saída $Yi$ com a observação $i$ obtida do conjunto de dados (ponto chave do processo de treino supervisionado) e por fim essa comparação irá gerar um erro $e$.
@@ -215,26 +223,26 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
   	    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 \subsection{Rede Perceptrons Múltiplas Camadas - MLP}
   	       
-  	       A solução base para se combinar 2 ou mais camadas de perceptrons a fim de se resolver um problema com a combinação de 2 ou mais soluções lineares, é a utilização de um perceptron combinador de sinal de saída, já que cada perceptron pode ter múltiplas entradas e somente uma saída. Dessa forma as redes neurais vão formando colunas de perceptrons interconectados. Cada coluna é denominada uma camada da rede neural. A ultima camada deve ter o número de perceptrons correspondente ao número de saídas desejadas. Na figura abaixo, encontra-se uma rede neural com duas camadas intermediárias e 3 saídas.
+  	       A solução base para se combinar 2 ou mais camadas de perceptrons a fim de se resolver um problema com a combinação de 2 ou mais soluções lineares, é a utilização de um perceptron combinador de sinal de saída, já que cada perceptron pode ter múltiplas entradas e somente uma saída. Dessa forma as redes neurais vão formando colunas de perceptrons interconectados. Cada coluna é denominada uma camada oculta da rede neural. A ultima camada deve ter o número de perceptrons correspondente ao número de saídas desejadas. Na figura \ref{fig:MLP} encontra-se uma rede neural com 1 camada oculta e 2 saídas.
   	       
   	       \begin{figure}[H]
   	       	\center{
   	       		\includegraphics[width=0.65\textwidth]
-  	       		{./Figs/12-mlp.png}
+  	       		{./Figuras/haykins_rede_MLP.PNG}
   	       	
-  	       	\caption{Rede de perceptrons com múltiplas camadas.} \subcaption*{Fonte: \cite{Almeida2013}}\label{fig:MLP}}
+  	       	\caption{Rede de perceptrons com múltiplas camadas, Fonte: \cite{Haykin1994}\label{fig:MLP}}
   	       \end{figure}
          
-  	       Esta rede denominada MLP (Multilayer Perceptron) possui uma camada de entrada onde cada nó representa uma variável a ser considerada ao problema a ser analisado, e pelo menos uma camada intermediária.
+  	       Esta rede denominada MLP (Multilayer Perceptron) possui uma camada de entrada onde quadrado ilustrado na primeira coluna da \ref{fig:MLP} representa um parâmetro do problema a ser analisado.
   	      
-  	       Nesta camada intermediária os neurônios possuem geralmente uma função de ativação sigmoidal logística ou tangente hiperbólica, e conceitualmente no mínimo 1 neurônio desta primeira camada oculta deve receber no mínimo 2 conexões de entrada. E uma camada de saída, na borda à direita, com o número de neurônios correspondente ao número de soluções buscadas. 
+  	       Nesta camada oculta os neurônios possuem geralmente uma função de ativação, e conceitualmente no mínimo 1 neurônio desta primeira camada oculta deve receber no mínimo 2 conexões de entrada. E uma camada de saída, na borda à direita, com o número de neurônios correspondente ao número de soluções buscadas.
   	       
             % \paragraph*{Treino e Validação da MLP}
-            	O conjunto de dados de entrada na rede MLP supervisionada, deve ser dividido em 2 partes principais, Treinamento e Validação. É importante salientar que as observações de ambos os conjuntos devem originar do mesmo conjunto de dados para representar o mesmo problema, as observações $Y_i$ relacionadas aos vetores $i$ de variáveis $X_{i1},Xi_{i2},...,X{ij}$ do conjunto de treino, devem ter a mesma estrutura, mesmo número j de variáveis X por vetor de entrada e devem representar o mesmo problema que as observações $Yi$ do conjunto de validação.
+            	O conjunto de dados de entrada na rede MLP supervisionada, deve ser dividido em 2 partes principais, Treinamento e Validação. É importante salientar que as observações de ambos os conjuntos devem originar do mesmo conjunto de dados para representar o mesmo problema.
             	
             	O conjunto de dados da validação e treino somados devem formar exatamente o conjunto original, sem informações excedentes ou em falta.
             	
-            	Os dados de treino e dados de validação, podem ser separados de forma aleatória, sendo os dados de treino os responsáveis pelos reajustes de pesos e capacidade de generalização da rede, e os dados de validação responsáveis pelo processo de validação pós-treino.
+            	Os dados de treino e dados de validação podem ser separados com diversas heurísticas inerentes aos temas de cada problema, na literatura de \cite{DLB} são encontradas por exemplo heurísticas de separação de conjuntos em ordem aleatória com 70\% dos dados para treino e 30\% dos dados para validação, sendo os dados de treino os responsáveis pelos reajustes de pesos e capacidade de generalização da rede, e os dados de validação responsáveis pelo processo de validação pós-treino.
             	
             	É importante adotar um bom critério de parada de treino, pois um treino prolongado tende a convergir em ajustes de pesos memorizados dos valores observados nos dados de treino e isso causa o fenômeno de overfitting na rede neural, que é a perda da capacidade de generalização. Pesos sinápticos que sofrem processo prolongado de reajustes acaba "viciando" a rede neural para reconhecer apenas os dados de treino.
             	
@@ -257,11 +265,8 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
           			\includegraphics[width=0.5\textwidth]
           			{./Figs/14-validacaocruzada.png}
           		
-          		\caption{Ponto ótimo de parada da validação cruzada.} 
-          		\subcaption*{ Retirado de \cite{Flavia2014}} \label{fig:validacaoCruzada}} 
+          		\caption{Ponto ótimo de parada da validação cruzada, Retirado de \cite{Flavia2014}} \label{fig:validacaoCruzada}} 
           	\end{figure}
-        
-        % O treinamento de uma rede MLP para previsões de demanda de restaurantes universitários que obteve sucesso em \cite{Lopes2008} e \cite{Rocha2011} é a retro propagação de erro.
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{O Algoritmo de Retro Propagação \textit{Backpropagation}}
@@ -280,26 +285,26 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
   	       \end{figure}
   	       
   	       \paragraph*{MLP Backpropagation em R.U em trabalhos relacionados}
-  	       De acordo com  o trabalho de \cite{Lopes2008}, a rede neural perceptron de múltiplas camadas é utilizada para tratar a previsão de demanda do R.U da UFV, utilizando apenas como variáveis quantitativas as 5 ultimas observações anteriores ao dia a se analisar, e como variáveis qualitativas o dia da semana variando de segunda a sexta, em valores binários.
+  	       De acordo com o trabalho de \cite{Lopes2008}, a rede neural perceptron de múltiplas camadas é utilizada para tratar a previsão de demanda do R.U da UFV, utilizando apenas como variáveis quantitativas as 5 ultimas observações anteriores ao dia a se analisar, e como variáveis qualitativas o dia da semana variando de segunda a sexta, em valores binários.
   	       
            \begin{figure}[H]
           	\center{
           		\includegraphics[width=0.65\textwidth]
           		{./Figs/15-rna-lopes.png}
           	
-          	\caption{Rede Neural Perceptron de Múltiplas Camadas.} \subcaption*{ Fonte:  \cite{Lopes2008}.}\label{fig:mlp-lopes}}
+          	\caption{Rede Neural Perceptron de Múltiplas Camadas. Fonte:\cite{Lopes2008}.}\label{fig:mlp-lopes}}
            \end{figure}
             
-           Conforme  o trabalho realizado por  \cite{Rocha2011} com neurônios artificiais para prever a demanda do R.U da UNESP, envolve apenas uma única camada de entrada e uma segunda camada para saída, porém com uma diversidade maior de variáveis de entrada correlacionadas com o consumo do restaurante. 
+           Conforme  o trabalho realizado por \cite{Rocha2011} com neurônios artificiais para prever a demanda do R.U da UNESP, envolve apenas uma única camada de entrada e uma segunda camada para saída, porém com uma diversidade maior de variáveis de entrada correlacionadas com o consumo do restaurante. 
            \begin{figure}[H]
           	\center{
           		\includegraphics[width=0.65\textwidth]
           		{./Figs/16-rna-rocha.png}
           	
-          	\caption{Rede Neural Perceptron de Múltiplas Camadas.} \subcaption*{Fonte:   \cite{Rocha2011}} \label{fig:rnaRocha}}
+          	\caption{Rede Neural Perceptron de Múltiplas Camadas. Fonte: \cite{Rocha2011}} \label{fig:rnaRocha}}
            \end{figure}
          
-            Ambos os modelos possuem topologia de uma camada oculta para entrada dos dados, e uma camada de saída. que de acordo com  a análise de\cite{Braga2000}  é citado que através de uma análise de Cybenko, uma camada intermediária é o suficiente para aproximar qualquer função contínua e 2 camadas intermediárias são suficientes para aproximar qualquer função matemática, e devendo ser observado o fato de que em alguns casos, a utilização de 2 ou mais camadas pode facilitar o treinamento da rede, porém a utilização de um grande número de camadas intermediárias ou ocultas, é inviável, pois em cada uma delas a estimativa do erro se trata de uma estimativa da estimativa do erro da camada anterior, e este cascateamento de estimativas pode se tornar menos preciso à medida que cresce.
+            Ambos os modelos possuem topologia de uma camada oculta para entrada dos dados, e uma camada de saída. que de acordo com  a análise de \cite{Braga2000}  é citado que através de uma análise de Cybenko, uma camada intermediária é o suficiente para aproximar qualquer função contínua e 2 camadas intermediárias são suficientes para aproximar qualquer função matemática, e devendo ser observado o fato de que em alguns casos, a utilização de 2 ou mais camadas pode facilitar o treinamento da rede, porém a utilização de um grande número de camadas intermediárias ou ocultas, é inviável, pois em cada uma delas a estimativa do erro se trata de uma estimativa da estimativa do erro da camada anterior, e este cascateamento de estimativas pode se tornar menos preciso à medida que cresce.
             
           Em conformidade com o trabalho de  \cite{Flavia2014}, o número de neurônios na primeira camada oculta é proporcional à dimensão do espaço de observação. Logo em modelos preditivos de demanda, supracitados, observa-se que no mínimo, na primeira camada oculta, é utilizado um número de neurônios igual ao número de variáveis que influenciam no dado preditivo.
             
@@ -363,13 +368,13 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
         
         Existem algoritmos populares que otimizam a convergência do reajuste dos pesos no treino de backpropagation. ganhando destaque o otimizador ADAM. A vantagem deste otimizador é a fusão das melhores características de 2 otimizadores o Momentum e RMSProp. Momentum acelera o reajuste dos pesos em busca dos erros globais mínimos, e RMSProp impede a busca na direção das oscilações.\newline
          Adam ou Adaptive Moment otimization combina estas 2 heurísticas. O coeficiente de aprendizado, ou conhecido como "learning rate", popular para este processo de otimização tem valor definido por uma constante alpha, de valor escalar 0.001.
-        Esta constante tem produzido resultados positivos em problemas de forecast (predições) de acordo com o popular ebook Machine Learning Mastery fundamentado pelo autor \cite{MLM}. Na figura \label{fig:otimizadores} o eixo y "Training cost" demonstra que quanto menor o custo de treinamento, maior a velocidade de convergência ao reajuste ideal dos pesos, e neste caso é notório a vantagem do otimizador Adam sobre os demais à medida do avanço no número de iterações.
+        Esta constante tem produzido resultados positivos em problemas de forecast (predições) de acordo com o popular ebook Machine Learning Mastery fundamentado pelo autor \cite{MLM}. Na figura \ref{fig:otimizadores} o eixo y "Training cost" demonstra que quanto menor o custo de treinamento, maior a velocidade de convergência ao reajuste ideal dos pesos, e neste caso é notório a vantagem do otimizador Adam sobre os demais à medida do avanço no número de iterações.
         \begin{figure}[H]
         	\center{
         		\includegraphics[width=0.80\textwidth]
         		{./Figuras/MLM/optimizers.png}
         	
-        	\caption{Comparison of Adam to Other Optimization Algorithms Training a Multilayer Perceptron} \subcaption*{Fonte : \cite{MLM} https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/}} \label{fig:otimizadores}
+        	\caption{Comparison of Adam to Other Optimization Algorithms Training a Multilayer Perceptron Fonte : \cite{MLM} }} \label{fig:otimizadores}
         \end{figure}
             
             \subparagraph{Validação de treino}
@@ -380,16 +385,14 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
                 Quando este limite for atingido em uma época $k_o$, todos os parâmetros da rede dentro da época $k_o$ serão os parâmetros desejados do modelo final da rede.
                 
                 Quando a curva do $m.s.e$ estiver sendo realizada, não se saberá o ponto ótimo de parada, até que ele comece a ser superado, logo é importante arbitrar um número $l$ para salvar os parâmetros das $l$ épocas anteriores, em busca do ponto ótimo de parada, conforme figura \ref{fig:validacaoCruzada}
-                
-      
         
         \subsection{Redes Recorrentes: O modelo GRU}
-         	De acordo com  o livro Deep Learning Book desenvolvido pela  \cite{DLB}, no capítulo de arquitetura de redes neurais gated recurrent unit gru, as redes recorrentes GRU são uma melhoria das redes perceptron recorrentes clássicas encontradas na literatura, pois utilizam elementos que decidem o valores de saída das unidades, e que podem memorizar informações de entrada dadas por um grande intervalo de tempo, sem sofrer dissipação destes valores, com o aproveitamento de recursos de memória computacionais. Portanto serão indicadas na aplicação deste trabalho para a memorização da sazonalidade semestral e anual dos dados do restaurante universitário.
+         	De acordo com  o livro Deep Learning Book desenvolvido pela  \cite{DLB}, no capítulo de arquitetura de redes gated recurrent unit (GRU), as redes recorrentes GRU são uma adaptação das redes LSTM (Long Short Term Memory) que consequentemente é uma melhoria das redes recorrentes clássicas encontradas na literatura, pois utilizam elementos que decidem o valores de saída das unidades, e que podem memorizar informações de entrada dadas por um grande intervalo de tempo, sem sofrer dissipação destes valores (resolvendo um problema clássico de memória de curto prazo em redes recorrentes), estes elementos de decisão e memorização dos valores dos gradientes de reajustes dos pesos são ilustrados como "reset gate" e "update gate" na figura \ref{fig:gru-arch}. Portanto este modelo, especificamente o GRU, foi viável na aplicação deste trabalho para a memorização da sazonalidade semestral e anual dos dados do restaurante universitário.
+         	
             \begin{figure}[H]
             	\center{
             		\includegraphics[width=0.80\textwidth]
-            		{./Figuras/gru_arch.jpg}
+            		{./Figuras/rnns.png}
             	
-            	\caption{Arquitetura do modelo GRU}
-            	\subcaption*{ Fonte:  http://deeplearningbook.com.br/arquitetura-de-redes-neurais-gated-recurrent-unit-gru/} \label{fig:gru-arch}}
+            	\caption{Arquitetura do modelo GRU, Fonte: \cite{DLB}} \label{fig:gru-arch}}
             \end{figure}
