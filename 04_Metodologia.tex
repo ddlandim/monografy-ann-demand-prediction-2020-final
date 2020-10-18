@@ -190,34 +190,9 @@
                     \item  Concatenou-se a saída das 2 redes neurais em um percetron criando um comitê de redes neurais para obter a saída final prevista.
                 \end{itemize}
                 %TODO-T: FIGURA 24 ESTORANDO MARGEM DO TITULO
-	\subsection{Função de ativação}
-	    \begin{figure}[H]
-        	\center{
-        		\includegraphics[width=0.80\textwidth] {./Figuras/mc_ai/activation_functions.png}
-        	
-        	\caption{Funções de Ativação} \subcaption*{Fonte: \cite{MCAI}, https://mc.ai/complete-guide-of-activation-functions/}} \label{fig:activation_functions}
-        \end{figure}
-	    \subsubsection{Para a entrada e camadas ocultas}
-    	    A função ReLu é simples e eficiente para a aplicação nos experimentos, visto que na fase feed-forward tem efeito parecido com a função identidade, e na fase feed-backward durante o reajuste dos pesos pelo otimizador, produz efeito degrau zerando valores negativos e sendo adequada na aplicação do domínio de entrada deste trabalho, visto que todas as variáveis endógenas e exógenas não possuem valores negativos.
-    	\subsubsection{Para a saída}
-    	    Para os valores previstos a função escolhida é a linear, pois na fase feed-backward do reajuste dos pesos pelo algoritmo de treino backpropagation, a derivada da função linear se torna zero, mantendo a execução do algoritmo de treino transformando apenas os valores de entrada e valores das camadas ocultas das redes, sem interferir no valor de saída.
-%TODO-T: FIGURA 25 ESTORANDO MARGEM NO TITULO    	
-    \subsection{Otimizador}
-        \begin{figure}[H]
-        	\center{
-        		\includegraphics[width=0.80\textwidth]
-        		{./Figuras/MLM/optimizers.png}
-        	
-        	\caption{Comparison of Adam to Other Optimization Algorithms Training a Multilayer Perceptron} \subcaption*{Fonte : \cite{MLM} https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/}} \label{fig:otimizadores}
-        \end{figure}
-        Para este trabalho foi escolhido o otimizador ADAM no treino de backpropagation.
-        A vantagem deste otimizador é a fusão das melhores características de 2 otimizadores :\newline 
-         Momenum e RMSProp. \newline
-        O Momentum acelera o reajuste dos pesos em busca dos erros globais mínimos.\newline
-         O RMSProp impede a busca na direção das oscilações.\newline
-         Adam ou Adaptive Moment otimization combina estas 2 heurísticas.
-        O coeficiente de aprendizado escolhido para o otimizador, ou conhecido como "learning rate", foi definido para a constante alpha, com valor 0.001.
-        Esta constante tem produzido resultados positivos em problemas de forecast (predições) de acordo com o artigo fundamentado em \cite{MLM}.
+	\subsection{Hiperparâmetros : Função de ativação e otimizador}
+        Conforme fundamentado no capítulo \label{cap:teoria} na seção "Perceptron", a função de ativação dá a capacidade do perceptron, quando conectado em rede, de resolver problemas lineares e não lineares, agregando adaptação e improviso ao resolver programas que não estão contidos em seus dados de alimentação.
+        Portanto para as camadas ocultados das redes neurais MLP desenvolvidas será aplicada a função ReLu e para o neurônio de saída será aplicada a função linear, e o otimizador de treino realiza a função de otimizar o tempo de convergência do reajuste dos pesos à valores ideais, sendo escolhido o otimizador ADAM com taxa de aprendizado defino em 0.001.
 
     \section{Teste e Métricas}
        A principal métrica de avaliação dos modelos, é a Raiz do Erro Quadrático Médio, obtido pela chamada de função "mean\_squared\_error"\ do framework Tensorflow.Keras utilizado para a modelagem,treino e predição dos modelos de redes neurais.
