@@ -1,13 +1,133 @@
 \chapter{Anexos} \label{cap:anexo1}
 	\section{1a Fase Experimental}
-	    \subsection{Pré-Processamento e treino dos modelos}
-	        \url{https://colab.research.google.com/drive/1spSZDJk1EwK9UK-jfYbWinKEq0EEYIuM?usp=sharing}
-	    \subsection{Importação e aplicação de métricas dos modelos}
+	    \paragraph{Pré-Processamento e treino dos modelos}
+	        No link abaixo, encontram-se os gráficos, métricas e tabelas de todos os modelos treinados na primeira fase experimental, bem como a análise exploratória detalhada de todas as variáveis e parâmetros de entrada nos modelos, e também o detalhamento do pré-processamento dos conjuntos de dados.
+	        
+	        Os experimentos foram realizados na plataforma Google Colab, em linguagem Python. Nenhuma configuração de ambiente é necessária para reproduzir os experimentos, bastando acessar o link através de um navegador de internet e executá-los caso necessário.
+	        
+	        Os experimentos se encontram em formato de Python Notebook, com recursos de indexação e documentação com blocos de texto e imagens para uma fácil compreensão.
+	        
+            \url{https://colab.research.google.com/drive/1spSZDJk1EwK9UK-jfYbWinKEq0EEYIuM?usp=sharing}
+            
+	    \paragraph{Importação e aplicação de métricas dos modelos}
+	        No link abaixo encontra-se uma página para a importação dos modelos já treinados e conjuntos de dados já pré-processados para o calculo das métricas finais da primeira fase.
+	        
 	        \url{https://colab.research.google.com/drive/1vLx4TmsDy0jxVF0BFLng9XFdxgR_IAPL?usp=sharing}
+	 
 	\section{2a Fase Experimental}
-	    \subsection{Pré-Processamento e treino dos modelos}
+	    \paragraph{Pré-Processamento e treino dos modelos}
+	        Link para os gráficos, métricas e tabelas de todos os modelos treinados na segunda fase experimental.
 	        \url{https://colab.research.google.com/drive/1U4pTAAzBQDS3s5LFZqK1-isa3pHJQ9D8?usp=sharing}
-	    \subsection{Importação e aplicação de métricas dos modelos}
+	    \paragraph{Importação e aplicação de métricas dos modelos}
+	         Link apara a importação dos modelos já treinados e conjuntos de dados já pré-processados para o calculo das métricas finais da segunda fase.
 	        \url{https://colab.research.google.com/drive/1bBMTP9YQcy6sRNHZTr3NRSt1YCxJyu5t?usp=sharing}
 	        
-	        
+    
+\section{Tabela completa das métricas de todos os modelos}
+        A seguir são listadas as tabelas com todos resultados experimentais.
+     
+        \begin{table}[!ht]
+        \caption{Previsões e erros de todos os modelos}
+        \begin{adjustbox}{width=\columnwidth,center}
+           \begin{tabular}{ | c | c| c | c| c | }
+     \rowcolor{gray!50}
+    \multirow{2}{*}{	MODELO} & TOTAL  & TOTAL  & ERRO TOTAL & ERRO TOTAL  \\ \rowcolor{gray!50}
+   &                        CONSUMIDAS & PREVISTAS &  PREVISAO &  PERC PREVISAO  \\ 
+    \multicolumn{5}{c}{	MODELOS ENDÓGENOS }  \\ \hline
+	RNN\_ENDO\_1 1A FASE & 31962 & 30927 & -1035 & -3.239405876509605 \\ \hline
+	RNN\_ENDO\_1 2A FASE & 58653 & 60412 & 1759 & 2.9991006427633708 \\ \hline
+	RNN\_ENDO\_1\_NEW 1A FASE & 31962 & 32340 & 378 & 1.183118820787185 \\ \hline
+	RNN\_ENDO\_1\_NEW 2A FASE & 58653 & 63005& 4352 & 7.4192976062605496 \\ \hline
+	RNN\_ENDO\_2 1A FASE & 31962 & 31466 & -496 & -1.5530588570020649 \\ \hline
+	RNN\_ENDO\_2 2A FASE & 58653 & 61855 & 3202 & 5.4594660545922631 \\ \hline
+	MLP\_ENDO\_1 1A FASE & 31962 & 32370 & 408 & 1.2754342559132721 \\ \hline
+	MLP\_ENDO\_1 2A FASE & 58653 & 60039 & 1385 & 2.361165722554686 \\ \hline
+	\multicolumn{5}{c}{ MODELOS EXÓGENOS }\\ \hline
+	RNN\_EXO\_1 1A FASE & 31962 & 28729 & -3233. & -10.115711137444469 \\ \hline
+	RNN\_EXO\_1 2A FASE & 58653 & 62048 & 3395 & 5.7883601435561687 \\ \hline
+	RNN\_EXO\_2 1A FASE & 31962 & 30823 & -1139& -3.5631362535980231 \\ \hline
+	RNN\_EXO\_2 2A FASE & 58653 & 63161 & 4507 & 7.6849622994561244 \\ \hline
+	RNN\_EXO\_1 1A FASE & 31962 & 29426 & -2536 & -7.9350759788968146 \\ \hline
+	RNN\_EXO\_3 2A FASE & 58653 & 58348 & -305 & -0.51967450514040203 \\ \hline
+	MLP\_ENDO\_1 (**) & 31962 & 31678 & -285 & -0.89014396001501783 \\ \hline
+	RNN\_EXO\_1 (**) & 31962 & 32170 & 208 & 0.65154274998435635 \\ \hline
+\end{tabular} \end{adjustbox}\subcaption{(**) \textbf{MODELOS TREINADOS NA 2A FASE E TESTADOS NO DOMÍNIO DA 1A FASE}} \end{table} 
+
+\begin{table}[!ht]
+        \caption{Erros quantitativos de todos os modelos}
+        \begin{adjustbox}{width=\columnwidth,center}
+           \begin{tabular}{ | c | c| c | c| c | }
+     \rowcolor{gray!50}
+    \multirow{2}{*}{	MODELO} & TOTAL  & TOTAL  & ERRO ABS & ERRO ABS \\ \rowcolor{gray!50}
+   &                         FALTA & DESCARTE &  MEDIANO&  PERC MEDIO \\ 
+    \multicolumn{5}{c}{	MODELOS ENDÓGENOS }  \\ \hline
+RNN\_ENDO\_1 1A FASE & -3281 & 4316 & 74.01922607421875 & 87.498764275186574 \\ \hline
+	RNN\_ENDO\_1 2A FASE & -7709 & 5950 & 58.424896240234382 & 107.879362802119 \\ \hline
+	RNN\_ENDO\_1\_NEW 1A FASE & -3790& 3412 & 61.992218017578118 & 84.551097335540604 \\ \hline
+	RNN\_ENDO\_1\_NEW 2A FASE & -8836 & 4485 & 50.561531066894531 & 106.1737733320671 \\ \hline
+	RNN\_ENDO\_2 1A FASE & -2983 & 3479 & 46.70721435546875 & 74.935390020580499 \\ \hline
+	RNN\_ENDO\_2 2A FASE & -8335 & 5133. & 55.779953002929688 & 101.28461523309871 \\ \hline
+	MLP\_ENDO\_1 1A FASE & -4306 & 3898 & 71.895050048828125 & 92.581572674093621 \\ \hline
+	MLP\_ENDO\_1 2A FASE & -7097 & 5712 & 53.880401611328118 & 98.551651813961143 \\ \hline
+	\multicolumn{5}{c}{ MODELOS EXÓGENOS }\\ \hline
+RNN\_EXO\_1 1A FASE & -2709 & 5942 & 85.591079711914063 & 90.986939760645683 \\ \hline
+	RNN\_EXO\_1 2A FASE & -8163 & 4768 & 55.235549926757813 & 224.90689710891991 \\ \hline
+	RNN\_EXO\_2 1A FASE & -3045 & 4184 & 63.59893798828125 & 88.268751944415627 \\ \hline
+	RNN\_EXO\_2 2A FASE & -9677 & 5170 & 64.686370849609375 & 230.9423750370137 \\ \hline
+	RNN\_EXO\_1 1A FASE & -3418 & 5954 & 100.4442901611328 & 98.790654534511432 \\ \hline
+	RNN\_EXO\_3 2A FASE & -8608 & 8913 & 85.186691284179688 & 236.56705215095431 \\ \hline
+	MLP\_ENDO\_1(**) & -351 & 3797 & 65.664161682128906 & 84.968453579705567 \\ \hline
+	RNN\_EXO\_1  (**) & -3455 & 3247 & 59.541488647460938 & 83.267123246967984\\ \hline
+\end{tabular} \end{adjustbox}\subcaption{(**) \textbf{MODELOS TREINADOS NA 2A FASE E TESTADOS NO DOMÍNIO DA 1A FASE}} \end{table} 
+
+	    \begin{table}[!ht]
+        \caption{Métricas estatísticas e de treino de todos os modelos}
+        \begin{adjustbox}{width=0.8\columnwidth,center}
+           \begin{tabular}{ |c | c| c | c| }
+     \rowcolor{gray!50}
+   {	MODELO} & r\_2 value &	std\_err & RMSE \\ \hline
+     \multicolumn{4}{c}{	MODELOS ENDÓGENOS }  \\ \hline
+RNN\_ENDO\_1 1A FASE&	0,227790684	&0,060015329&	115,5925727\\ \hline
+RNN\_ENDO\_1 2A FASE&	0,403421735	&0,041709544&	101,1817723\\ \hline
+RNN\_ENDO\_1\_NEW 1A FASE&	0,297403256&	0,076707056&	114,9298596\\ \hline
+RNN\_ENDO\_1\_NEW 2A FASE&	0,406723755&	0,049286722&	106,5097754\\ \hline
+RNN\_ENDO\_2 1A FASE&	0,354548669	&0,07211072&	108,0663015\\ \hline
+RNN\_ENDO\_2 2A FASE&	0,393368691	&0,047437759&	105,3284058\\ \hline
+MLP\_ENDO\_1 1A FASE&	0,271692371	&0,094729706&	128,0541521\\ \hline
+MLP\_ENDO\_1 2A FASE&	0,435499457	&0,048407537&	101,1515612\\ \hline
+	\multicolumn{4}{c}{ MODELOS EXÓGENOS }\\ \hline
+RNN\_EXO\_1 1A FASE &	0,169921969	&0,055137798&	124,4907583\\ \hline
+RNN\_EXO\_1 2A FASE	&0,450817978&	0,044599046	&99,3650953\\ \hline
+RNN\_EXO\_2 1A FASE&	0,271069515&	0,063900355&	112,9921125\\ \hline
+RNN\_EXO\_2 2A FASE&	0,353903426&	0,041791587	&107,8493502\\ \hline
+RNN\_EXO\_1 1A FASE	&0,115350372&	0,030618267	&124,658106\\ \hline
+RNN\_EXO\_3 2A FASE&	0,195308809	&0,036685013&	117,0316729\\ \hline
+MLP\_ENDO\_1 (**)&	0,289679534	&0,078827728&	116,6204195\\ \hline
+RNN\_EXO\_1  (**)&	0,348544598	&0,065875446&	106,2080123 \\ \hline
+\end{tabular} \end{adjustbox}\subcaption{(**) \textbf{MODELOS TREINADOS NA 2A FASE E TESTADOS NO DOMÍNIO DA 1A FASE}} \end{table} 
+	    
+\begin{table}[!ht]
+        \caption{Métricas gráficas de todos os modelos}
+        \begin{adjustbox}{width=\columnwidth,center}
+           \begin{tabular}{ | c | c| c | c| c |}
+     \rowcolor{gray!50}
+   {	MODELO} & CORRELAÇÂO &	p-value &	slope & 	intercept\\ \hline
+     \multicolumn{5}{c}{	MODELOS ENDÓGENOS }  \\ \hline
+RNN\_ENDO\_1 1A FASE &	0,477274223	&2,58153E-06&	0,302281717&241,6487795 \\ \hline
+RNN\_ENDO\_1 2A FASE&	0,63515489&	5,99003E-22&	0,460169282&	183,6360173\\ \hline
+RNN\_ENDO\_1\_NEW 1A FASE&	0,545346913	&3,92771E-08&	0,462811705&	199,4063637\\ \hline
+RNN\_ENDO\_1\_NEW 2A FASE&	0,637748975&	3,62045E-22	&0,547504225&	169,7355865\\ \hline
+RNN\_ENDO\_2 1A FASE&	0,595439895&	9,42215E-10	&0,495627318&	177,5496565\\ \hline
+RNN\_ENDO\_2 2A FASE&	0,627191112&2,72853E-21&	0,512504755	&174,6988902\\ \hline
+MLP\_ENDO\_1 1A FASE&	0,521241183	&1,92116E-07&	0,536558041	&172,9566557\\ \hline
+MLP\_ENDO\_1 2A FASE&	0,659923827	&3,98987E-24&	0,570441175&	146,0429015\\ \hline
+	\multicolumn{5}{c}{ MODELOS EXÓGENOS }\\ \hline
+RNN\_EXO\_1 1A FASE &	0,412215925&	6,59074E-05&	0,231347042&	242,4375396 \\ \hline
+RNN\_EXO\_1 2A FASE &	0,671429801	&3,29843E-25&	0,542131051&	166,211183 \\ \hline
+RNN\_EXO\_2 1A FASE&	0,520643366	&1,99521E-07&	0,36136807&	219,0125358 \\ \hline
+RNN\_EXO\_2 2A FASE&	0,594897828&8,35169E-19&	0,414971987&	213,302789 \\ \hline
+RNN\_EXO\_1 1A FASE&	0,339632701&	0,001206742	&0,102530642&	297,1444074 \\ \hline
+RNN\_EXO\_3 2A FASE&	0,441937562&	4,22316E-10&	0,242477375	&242,4514853 \\ \hline
+MLP\_ENDO\_1 (**)&	0,538218854	&6,36258E-08&	0,466831313&190,4162416 \\ \hline
+RNN\_EXO\_1  (**)&	0,590376657	&1,41433E-09&	0,446847803	&203,2738308 \\ \hline
+\end{tabular} \end{adjustbox} \subcaption{(**) \textbf{MODELOS TREINADOS NA 2A FASE E TESTADOS NO DOMÍNIO DA 1A FASE}}\end{table} 

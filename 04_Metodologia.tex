@@ -14,7 +14,7 @@
 	    Na etapa de pré-processamento dos dados, além da obtenção dos dados, também é realizada a etapa de transformação dos dados em séries temporais, normalização com a remoção de outliers, e aplicação da escala 0 a 1, para que todos os dados correspondam à um mesmo domínio de aprendizado.
 	    Após a conclusão destas etapas, o conjunto de dados foi preparado para as fases experimentais 1 e 2, que realizaram uma divisão do conjunto final de dados em intervalos temporais distintos.
 	    
-	    \subsection{Dados endógenos}
+	    \subsection{Dados endógenos} \label{subsec:coleta_endogenos}
         	Os dados históricos de consumo no restaurante foram retirados do atual sistema banco de dados de refeições subsidiadas do Hospital São Paulo, que gerencia os dados dos refeitórios de todos as unidades da Unifesp.
         	
         	Apenas alguns funcionários autorizados têm acesso ao banco de dados do sistema de refeições da instituição, entre eles o fiscal de contrato do restaurante universitário. Para obter tais dados neste trabalho, foi necessário obter uma autorização com a direção do campus ICT - UNIFESP e, em seguida, solicitar a exportação dos dados ao fiscal. Para este trabalho foram solicitados os dados de consumo exclusivamente de alunos, pois podem ser obtidos também os dados de professores, alunos de pós-graduação e visitantes. 
@@ -54,14 +54,14 @@
                 4 DIAS ANTERIORES & 200                            \\
                 5 DIAS ANTERIORES & 100                          \\ \hline 
                 \end{tabular}
-                \caption{Transformação dos registros do restaurante em uma série temporal}
+                \caption{Transformação dos registros do restaurante em uma série temporal.}
                 \label{table:transformacaodadosrestaurante}
             \end{table}
             
-            Após a coleta, os dados de consumo do restaurante foram transformados em um processo de aproximação por uma série temporal, para um intervalo de 5 dias, e em cada registro de venda  acrescentados 5 novos atributos contendo os valores passados, deste mesmo atributo, em um intervalo de 5 dias anteriores. Este processo adapta o conjunto de dados para o processo de memorização das entradas, estruturando o formato compatível de leitura de dados nos modelos de redes neurais desenvolvidos. A tabela \ref{table:transformacaodadosrestaurante} representa a nova estrutura de um registro de dado do restaurante, com um intervalo temporal de 5 dias anteriores. Nota-se que o valor de consumo da data 20/04/2017 foi removido do conjunto de dados, por se tratar o valor supervisionado a ser previsto, dado que o processo de aprendizado das redes neurais utilizam apenas dados no passado, a partir de 1 dia anterior.
+            Após a coleta, os dados de consumo do restaurante foram transformados em um processo de aproximação por uma série temporal, para um intervalo de 5 dias, e em cada registro de venda  acrescentados 5 novos atributos contendo os valores passados, deste mesmo atributo, em um intervalo de 5 dias anteriores. Este processo adapta o conjunto de dados para o processo de memorização das entradas, estruturando o formato compatível de leitura de dados nos modelos de redes neurais desenvolvidos. A Tabela \ref{table:transformacaodadosrestaurante} representa a nova estrutura de um registro de dado do restaurante, com um intervalo temporal de 5 dias anteriores. Nota-se que o valor de consumo da data 20/04/2017 foi removido do conjunto de dados, por se tratar o valor supervisionado a ser previsto, dado que o processo de aprendizado das redes neurais utilizam apenas dados no passado, a partir de 1 dia anterior.
             
            
-        \subsection{Dados exógenos}
+        \subsection{Dados exógenos} \label{subsec:coleta_exógenos}
             Os dados exógenos correlacionados com o consumo se dividem em 2 tipos principais, os dados climáticos coletados de estações meteorológicas próximas ao ICT Unifesp, e dados derivados das datas dos registros de consumo.
             
             \paragraph{Dados Climáticos}
@@ -73,14 +73,14 @@
             	A informação de data contida nos índices dos registros dos dados endógenos, foi derivada em diversas informações que representam o comportamento de consumo em relação à sazonalidade da frequência dos alunos influenciada pelas agendas de atividades acadêmicas.\\
             	Os seguintes parâmetros foram definidos:
             	\begin{itemize}
-            	    \item Semestre 1 ou 2 em formato categórico e binário.
-            	    \item Dia da semana em formato categórico e binário.
-            	    \item Distancia em dias até o registro anterior e posterior.
-            	    \item Avanço do semestre em escala percentual.
+            	    \item Semestre 1 ou 2 em formato categórico e binário;
+            	    \item Dia da semana em formato categórico e binário;
+            	    \item Distancia em dias até o registro anterior e posterior;
+            	    \item Avanço do semestre em escala percentual;
             	    \item Avanço do mês em escala percentual.
             	\end{itemize}
             	
-            	O consumo distribuído em uma janela de 5 dias para entrada nas redes MLP seguiu padrão semelhante com os trabalho de previsão de demanda em R.U realizados por \cite{Lopes2008} e \cite{Rocha2011}, ilustrado na figura \ref{fig:mlp-lopes}.
+            	O consumo distribuído em uma janela de 5 dias para entrada nas redes MLP seguiu padrão semelhante com os trabalho de previsão de demanda em R.U realizados por \citeonline{Lopes2008} e \citeonline{Rocha2011}, ilustrado na figura \ref{fig:mlp-lopes}.
                 
 	\subsection{Formato final do conjunto de dados}
        \begin{table}[!ht]
@@ -129,20 +129,20 @@
             \caption{Estrutura final do conjunto de dados indexados por data}
             \label{table:dataset_final}
         \end{table}
-        Por fim, a tabela \ref{table:dataset_final} representa o conjunto de dados estruturados e preparados para o processo de divisão em domínios de treino, validação e teste para o treino dos modelos.
+        Por fim, a Tabela \ref{table:dataset_final} representa o conjunto de dados estruturados e preparados para o processo de divisão em domínios de treino, validação e teste para o treino dos modelos.
         
         \subsection{Tratamento dos dados para entrada nos modelos}
          	Os dados endógenos, após estruturados na tabela final do conjuntos de dados, ainda passam pelas seguintes transformações:
          	\begin{itemize}
-                \item	Calculo do desvio padrão de cada vetor de atributos, e normalização dos valores máximos para o teto de 3x o desvio padrão, e mínimo de 0. 
-                \item	Transformação dos dados em escala de 0 e 1
+                \item	Calculo do desvio padrão de cada vetor de atributos, e normalização dos valores máximos para o teto de 3x o desvio padrão, e mínimo de 0; 
+                \item	Transformação dos dados em escala de 0 e 1.
             \end{itemize}
             Os dados exógenos não passam pela transformação em série temporal, portanto os mesmos foram tratados de acordo com os passos:
             \begin{itemize}
-                \item	Transformação dos dados em escala de 0 e 1.
+                \item	Transformação dos dados em escala de 0 e 1;
                 \item	Os parâmetros categóricos binários (dias da semana e semestre) já estão escalados por serem categorias binárias.
             \end{itemize}
-    	\subsection{Fases Experimentais}
+    	\subsection{Fases Experimentais} \label{subsec:fases_experimentais}
             O processo experimental foi realizado em 2 roteiros distintos de divisão do domínio temporal do conjunto de dados, e os resultados obtidos entre as duas fases foram comparados.
             
             O conjunto de dados contemplando o período de 2017 a 2019, foi dividido em conjunto de treino, validação e teste da seguinte maneira: 
@@ -152,9 +152,9 @@
                 Os dados de 2017 contemplando o 1º e 2º semestre, e 2018 contemplando o 2º semestre, foram usados para treino. Os resultados obtidos nesta divisão foram usados para validar a hipótese de que os modelos aprendem especificamente a sazonalidade de consumo no primeiro semestre, se saindo melhor nos testes realizados no primeiro semestre de 2019, em comparação aos outros modelos treinados com validação no ano todo de 2018.
                 Portanto, o conjunto de dados da primeira fase contempla o seguinte domínio:
             \begin{itemize}
-                    \item Conjunto de treino dos modelos, contemplando o primeiro e segundo semestre de 2017, e segundo semestre de 2018.
-                    \item Conjunto de validação dos modelos, contemplando o primeiro semestre de 2018.
-                    \item Conjunto de teste dos modelos, contemplando o primeiro semestre de 2019             
+                    \item Conjunto de treino dos modelos, contemplando o primeiro e segundo semestre de 2017, e segundo semestre de 2018;
+                    \item Conjunto de validação dos modelos, contemplando o primeiro semestre de 2018;
+                    \item Conjunto de teste dos modelos, contemplando o primeiro semestre de 2019.             
             \end{itemize}
             
             \paragraph{2º Fase com treino em 2017, validação em 2018 e teste em 2019}
@@ -162,27 +162,26 @@
                 As métricas obtidas neste teste foram comparadas com o melhor modelo da primeira fase.
     
     \section{Definição e treino dos modelos}
-        \subsection{Topologia}
             \paragraph*{Sobre a necessidade de se implementar modelos mistos}
                 No conjunto de dados deste trabalho, os dados obtidos se dividem em dados temporais e endógenos (tal que cada registro de consumo e venda trás a informação de seu domínio em um intervalo temporal de 5 dias anteriores) e dados discretos e exógenos, sendo variáveis categóricas de data para cada registro, e variáveis climáticas.
                 Portanto foi necessária a implementação de modelos específicos para entradas temporais e modelos específicos para as entradas discretas.
                 Para a saída final foi implementado um comitê de redes neurais endógenas e exógenas, com um neurônio perceptron na saída, recebendo os 2 valores dos modelos endógenos e exógenos para a regressão das saídas das 2 redes ao valor que será a predição do consumo.
-         	\subsubsection{Modelos endógenos}
+         	\paragraph{Modelos endógenos}
          	\begin{itemize}
                 \item	Desenvolvimento das redes perceptron de baixa profundidade para avaliar o aprendizado da rede
                 \item	Aumento da profundidade da rede e avaliar as mudanças da função de perda RMSE. 
                 \item	Implementação e avaliação dos modelos com redes recorrentes GRU, conforme a figura \ref{fig:gru-arch} que são especialmente desenvolvidos para o aprendizado com memorização de dados, e no caso deste trabalho, podem memorizar as sazonalidades semanais de consumo (em um intervalo de 5 dias).
             \end{itemize}
-            \subsubsection{Modelos Mistos : Endógenos e Exógenos}
+            \paragraph{Modelos Mistos : Endógenos e Exógenos}
                 \begin{itemize}
                     \item Para os dados temporais (consumo e venda) utilizou-se os melhores modelos endógenos dos experimentos anteriores para as entradas endógenas. 
                     \item Para os dados discretos e categóricos adaptou-se a entrada destes dados para rede perceptron
-                    \item  Concatenou-se a saída das 2 redes neurais em um percetron criando um comitê de redes neurais para obter a saída final prevista.
+                    \item  Concatenou-se a saída das 2 redes neurais em um perceptron criando um comitê de redes neurais para obter a saída final prevista.
                 \end{itemize}
             
 	\subsection{Hiperparâmetros : Função de ativação e otimizador}
         Conforme fundamentado no capítulo \ref{cap:teoria} na seção "Perceptron", a função de ativação dá a capacidade do perceptron, quando conectado em rede, de resolver problemas lineares e não lineares, agregando adaptação e improviso ao resolver programas que não estão contidos em seus dados de alimentação.
-        Portanto para as camadas ocultados das redes neurais MLP desenvolvidas será aplicada a função ReLu e para o neurônio de saída será aplicada a função linear, e o otimizador de treino realiza a função de otimizar o tempo de convergência do reajuste dos pesos à valores ideais, sendo escolhido o otimizador ADAM com taxa de aprendizado defino em 0.001.
+        Portanto para as camadas ocultados das redes neurais MLP desenvolvidas será aplicada a função ReLu e para o neurônio de saída será aplicada a função linear, e o otimizador de treino realiza a função de otimizar o tempo de convergência do reajuste dos pesos à valores ideais, sendo escolhido o otimizador ADAM com taxa de aprendizado defino em 0,001.
 
     \section{Teste e Métricas}
        A principal métrica de avaliação dos modelos é a Raiz do Erro Quadrático Médio ou em inglês (Root Mean Squared Error - RMSE).

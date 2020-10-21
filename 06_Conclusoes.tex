@@ -14,9 +14,6 @@
     
     \section{Sobre o ajuste empírico da topologia dos modelos}
         Na etapa de validação dos primeiros modelos desenvolvidos, demonstrado na subseção "Ajuste empírico de topologia da 1a fase", conforme figuras \ref{fig:case1_mlp1_train} e \ref{fig:case1_mlp2_train} do capítulo de resultados da 1a fase, foi possível notar a diminuição do RMSE (Raiz do erro quadrático médio) ao aumentar a profundidade da rede Perceptron para treino e avaliação sob o conjunto de validação, validando a hipótese de que os modelos tem capacidade de aprendizado do problema em relação ao ajuste da topologia dos mesmos.
-        
-    \section{Sobre os resultados preliminares da etapa de validação}
-        Apesar de valores de correlação muito próximos, foi possível notar na 1a fase algumas diferenças gráficas entre o modelo RNN\_ENDO\_2 e o modelo `MLP\_ENDO\_1 na etapa de validação dos modelos.  Porém, na etapa de testes, o modelo  RNN\_ENDO\_2 obteve RMSE 108 e correlação de 0,59, enquanto o MLP obteve RMSE de 128 e correlação de 0,52. Evidenciando que métricas muito próximas, entre modelos, na etapa de teste sobre o conjunto de validação pode evidenciar que não devemos realizar uma seleção previa destes modelos para a etapa de testes, sendo necessário o teste dos 2 modelos para comparações finais. Já os modelos que apresentaram diferenças de RMSE discrepantes na etapa de validação, mantiveram essas diferenças (para o pior e o melhor) na etapa de testes.
 
     \section{Sobre os erros anômalos de predição}
         Apesar do conjunto de dados conter 2 features que informam a distância em dias para o próximo registro e o registro anterior para os modelos identificarem feriados e recessos prolongados, alguns eventos no calendário, como paralisações, não são muito bem representados por tais features, indicando a necessidade de mais pesquisa de features que possam representar melhor este comportamento.
@@ -33,8 +30,12 @@
         \end{itemize}
         
     \section{Conclusões gerais}
-         As análises diversas de previsão de demanda para o tema abordado requerem extensos métodos de implementação e estruturação de dados.
+        O fenômeno mais evidente neste trabalho foi o alcance de melhoria significativa em todo os modelos de redes neurais artificiais desenvolvidos alterando-se apenas a organização do conjunto de dados entre a primeira e segunda fase, sem interferência em qualquer parâmetro ou hiper-parâmetro destes modelos. Na primeira obteve-se aproximadamente 70\% do conjunto para treino e o restante para validação sendo o método de organização mais comum, e na segunda fase que trouxe os melhores experimentos, obteve-se 50\% da organização do conjunto para treino e o mesmo para validação, denotando a necessidade de mais pesquisas e experimentos relacionados com organização de conjunto de dados para predições de séries temporais de consumo.
+        
+        As análises diversas de previsão de demanda para o tema abordado requerem extensos métodos de implementação e estruturação de dados.
+        
         Uma das etapas mais importantes do trabalho, é o método de coleta de dados. Muitos podem ser de acesso burocrático, ou de difícil busca, e são o requisito primordial para o inicio de qualquer análise.
         
-         A diversidade de métodos de aprendizado de máquina é imensurável, e dentro de apenas uma análise, que é o treino com retropropagação, pode-se montar infinitas topologias diferentes com base na estrutura dos dados coletados. 
+        A diversidade de métodos de aprendizado de máquina é imensurável, e dentro de apenas uma análise, que é o treino com retropropagação, pode-se montar infinitas topologias diferentes com base na estrutura dos dados coletados. 
+        
         As heurísticas sobre a definição de topologia apesar de diversas, não são determinísticas, e o processo requer análise exploratória, subjetiva e empírica sobre o tema e problema a ser abordado, todavia, foi notória a eficiência dos modelos de aprendizado de máquina em trabalhos relacionados à restaurantes universitários. Como no ICT - Unifesp não há qualquer modelo atual de previsão e a falta de um modelo causa desperdício de alimentos e prejuízo ao restaurante, a abordagem desta pesquisa e sua continuação com novos métodos torna-se viável.

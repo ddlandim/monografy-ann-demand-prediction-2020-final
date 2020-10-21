@@ -1,6 +1,7 @@
   \chapter{Fundamentação} \label{cap:teoria}
   
-Este capítulo apresenta a fundamentação necessária para a compreensão e desenvolvimento desta pesquisa. Especificamente, os seguintes tópicos são revisitados: Análise de dados e Redes Neurais Artificiais.
+Este capítulo apresenta a fundamentação necessária para a compreensão e desenvolvimento desta pesquisa. Especificamente, os seguintes tópicos são revisitados: 
+Análise de dados e Redes Neurais Artificiais.
  
 % ----------------------------------------------------------
 % TEORIAS PARA PRE PROCESSAMENTO DOS DADOS
@@ -9,9 +10,10 @@ Este capítulo apresenta a fundamentação necessária para a compreensão e des
 
 A análise de dados é um processo bastante amplo. Essa tarefa visa tratar os dados desde sua aquisição e pré-processamento até a sua interpretação a partir de ferramentas complexas de mineração. Essa seção inicia com a apresentação dos tipos de dados considerados nesse projeto. Na sequência, alguns aspectos sobre a análise exploratória de dados, definições sobre séries temporais e métodos de predição são brevemente introduzidos.
 
-\cite{Junior2007} realiza um trabalho amplo de análise de diversos métodos de previsão de demanda, e cita que dados coletados em modelos de previsão possuem informações que quando são projetadas graficamente evidenciam comportamentos que em alguns casos podem ser visualizados e generalizados de forma subjetiva pelos gestores dos dados. Em todos os casos, a análise de dados é necessária para selecionar parâmetros de demanda que contribuem de forma positiva à uma predição.
+%Roger
+Neste sentido, \citeonline{Junior2007} realizou um amplo trabalho avaliando  diversos métodos de previsão de demanda, e cita que dados coletados em modelos de previsão possuem informações que quando são projetadas graficamente evidenciam comportamentos que em alguns casos podem ser visualizados e generalizados de forma subjetiva pelos gestores dos dados. Em todos os casos, a análise de dados é necessária para selecionar parâmetros de demanda que contribuem de forma positiva à uma predição. O autor ainda avalia que somente a análise de dados não é o suficiente e que se realizada nos intervalos ou critérios incorretos pode comprometer as conclusões do comportamento dos dados, e que por sua vez pode influenciar seriamente a decisão dos gestores responsáveis por estes dados, no cenário de uma previsão de demanda.
 
-Também cita que somente a análise de dados não é o suficiente e que se realizada nos intervalos ou critérios incorretos pode comprometer seriamente as conclusões do comportamento dos dados, e que por sua vez pode comprometer seriamente a decisão dos gestores responsáveis por estes dados, no cenário de uma previsão de demanda.  Isto ocorre atualmente no cenário de previsão da demanda de refeições do ICT-UNIFESP, onde a universidade e o estabelecimento que fornece as refeições não informa nenhum modelo de previsão de demanda ou expõe alguma análise de dados que possam influenciar na demanda de consumo do restaurante. 
+Isto ocorre atualmente no cenário de previsão da demanda de refeições do ICT-UNIFESP, onde a universidade e o estabelecimento que fornece as refeições não informa nenhum modelo de previsão de demanda ou expõe alguma análise de dados que possam influenciar na demanda de consumo do restaurante. 
 
 Como foi evidenciado nas comunicações com a gestão do restaurante, a análise utilizada para se prever as refeições é produzir no dia da semana, como por exemplo uma segunda-feira, o consumo do mesmo dia da semana anterior (segunda-feira anterior) com acréscimo de uma margem de erro. Em geral, de acordo com o restaurante, todos os dias o mesmo trabalha com um erro e um descarte de 30\% das refeições que são trazidas e consumidas ao campus. Estima-se então que no período de 2011 - 01/08/2018 os estabelecimentos tenham tido um prejuízo de R\$1.885.938,40, e de 30\% de R\$78.386,85 no atual período de 01/08/2018 - 31/10/2018 totalizando o montante  R\$1.964.325,25. Aproximadamente 2 milhões de reais em prejuízo acumulado desde 2011.
 
@@ -32,13 +34,14 @@ Os dados exógenos são todos os outros dados fora do domínio de predição, in
 
 %\TODO{Essa seção poderia definir formalmente uma série temporal (equação).}
 
-De acordo com  \cite{Morettin1987}, uma série temporal é um conjunto de observações ordenadas em função do tempo, comumente iguais, apresentando uma dependência serial entre elas, sendo um dos objetivos do estudo de séries temporais, analisar e modelar essa dependência. Além disso, séries temporais são analisadas pelos seus principais movimentos, como tendência, sazonalidade e a componente aleatória, sendo a tendencia e sazonalidade as propriedades que mais ganham destaque em pesquisas de previsão de demanda de carga elétrica.
+De acordo com  \citeonline{Morettin1987}, uma série temporal é um conjunto de observações ordenadas em função do tempo, comumente iguais, apresentando uma dependência serial entre elas, sendo um dos objetivos do estudo de séries temporais, analisar e modelar essa dependência. Além disso, séries temporais são analisadas pelos seus principais movimentos, como tendência, sazonalidade e a componente aleatória, sendo a tendencia e sazonalidade as propriedades que mais ganham destaque em pesquisas de previsão de demanda de carga elétrica.
 
 A obtenção dos dados do R.U do ICT Unifesp se encontra em formato de série temporal, ou seja, o consumo e vendas de refeições no R.U se distribuem em função do tempo, pelos dias letivos da universidade.
 
-Almeida \cite{Almeida2013} em sua análise afirma que para realizar a previsão de uma determinada série temporal é possível utilizar diferentes métodos. Pode-se classificá-los basicamente entre métodos estatísticos e métodos baseados em inteligência artificial. Sendo abordado neste trabalho os métodos de redes neurais artificiais contemplados na disciplina de inteligência artificial.
+Avaliando modelos de lógica fuzzy \citeonline{Almeida2013} afirma que para realizar a previsão de uma determinada série temporal é possível utilizar diferentes métodos. Estes métodos Podem ser classificados basicamente entre métodos estatísticos e métodos baseados em inteligência artificial. Sendo abordado neste trabalho os métodos de redes neurais artificiais contemplados na disciplina de inteligência artificial.
   
-É importante observar que os métodos de previsão em séries temporais buscam uma redução da série temporal à um modelo estacionário e a decomposição da série em componentes de tendência, ciclo, sazonalidade e termo aleatório. A tendência entende-se pelo movimento persistente dos dados em uma direção, o ciclo indica o movimento oscilatório desta tendência, sazonalidade indica comportamento regular assumido de forma repetitiva e o termo aleatório se dá por movimentos irregulares presentes na série.
+É importante observar que os métodos de previsão em séries temporais buscam uma redução desta série em um modelo estacionário e sua decomposição em componentes de tendência, ciclo, sazonalidade e termo aleatório. A tendência entende-se pelo movimento persistente dos dados em uma direção, o ciclo indica o movimento oscilatório desta tendência, sazonalidade indica comportamento regular assumido de forma repetitiva e o termo aleatório se dá por movimentos irregulares presentes na série.
+% Roger citar ??
 
 % NAO CONSEGUI COMPILAR A TABELA, E NÃO SEI SE FICA LEGAL CITAR A TABELA DESTE AUTOR... ACHEI NO WIKIPEDIA, https://pt.wikipedia.org/wiki/S%C3%A9rie_temporal
 % \TODO{CITAR CORRETAMENTE}
@@ -59,7 +62,7 @@ Almeida \cite{Almeida2013} em sua análise afirma que para realizar a previsão 
 % \label{table:componentes_serie_temporal} 
 % \end{table}
            
-As técnicas de previsão para evidências sazonais, usam métodos de regressão, que podem ser observados nos trabalhos de previsão de consumo de energia elétrica realizados pelas pesquisas de \cite{Almeida2013}, \cite{RUAS2012} e de \cite{Silva2010}, além , da previsão de demanda de produtos cosméticos pelo trabalho de \cite{Junior2007}
+As técnicas de previsão para evidências sazonais, usam métodos de regressão, que podem ser observados nos trabalhos de previsão de consumo de energia elétrica realizados pelas pesquisas de \citeonline{Almeida2013}, \citeonline{RUAS2012} e de \citeonline{Silva2010}, além , da previsão de demanda de produtos cosméticos pelo trabalho de \citeonline{Junior2007}.
 
 O cenário deste estudo analisa a sazonalidade da frequência de alunos do ICT - UNIFESP, inferida pelas grades semestrais de suas disciplinas, que consequentemente inferem na sazonalidade de consumo de refeições dentro do restaurante universitário.\newline
 
@@ -67,13 +70,13 @@ O cenário deste estudo analisa a sazonalidade da frequência de alunos do ICT -
 
 A previsão de demanda pode ser definida como um processo de busca de informações que geram vendas de um produto ou um conjunto de produtos.
 
-O autor \TODO{Citar e incluir o autor, MOREIRA, Daniel Augusto. Administração da produção e operações. São Paulo: Editora Thomson Learning, 2002.} cita que os métodos de previsão de demanda são os processos que utilizam tais informações para definir uma demanda futura destes itens, desde métodos subjetivos e intuitivos até métodos matemáticos e computacionais, classificado os modelos de previsão em dois grandes grupos: métodos qualitativos e métodos quantitativos.
+O autor \citeonline{moreira1998} cita que os métodos de previsão de demanda são os processos que utilizam tais informações para definir uma demanda futura destes itens, desde métodos subjetivos e intuitivos até métodos matemáticos e computacionais, classificado os modelos de previsão em dois grandes grupos: métodos qualitativos e métodos quantitativos.
 
-No trabalho de \cite{Junior2007}, ilustrado na figura \label{fig:metodosPrevisaoDemanda}, os métodos qualitativos são definidos como um julgamento dos dados expostos sem um sistema de processamento analítico para se produzir novos modelos ou dados, sendo úteis para sistemas de agrupamento, clusterização ou classificação de dados, sem fornecer novas informações numéricas ou modelos preditivos. Já os métodos quantitativos, sendo o foco deste trabalho, são definidos como analíticos e se baseiam em um modelo matemático para realizar previsões. Para realizar tais previsões os métodos quantitativos necessitam de um histórico de dados, para analisar padrões em seu comportamento e predizer o futuro que irá agir dentro deste padrão.
+No trabalho de \citeonline{Junior2007}, ilustrado na figura \label{fig:metodosPrevisaoDemanda}, os métodos qualitativos são definidos como um julgamento dos dados expostos sem um sistema de processamento analítico para se produzir novos modelos ou dados, sendo úteis para sistemas de agrupamento, clusterização ou classificação de dados, sem fornecer novas informações numéricas ou modelos preditivos. Já os métodos quantitativos, sendo o foco deste trabalho, são definidos como analíticos e se baseiam em um modelo matemático para realizar previsões. Para realizar tais previsões os métodos quantitativos necessitam de um histórico de dados, para analisar padrões em seu comportamento e predizer o futuro que irá agir dentro deste padrão.
 
           \begin{figure}[H]
           	\center{
-          	\includegraphics[width=0.65\textwidth]{./Figs/02-junior-metodos-previsao-demanda.png}
+          	\includegraphics[width=0.90\textwidth]{./Figs/02-junior-metodos-previsao-demanda.png}
           	\caption{Métodos de previsão de demanda. Fonte: \cite{Junior2007}.}
           	\label{fig:metodosPrevisaoDemanda}}
           \end{figure}
@@ -82,7 +85,7 @@ E conforme a figura \ref{fig:metodosQuantitativos}, os métodos quantitativos se
 
           \begin{figure}[H]
           	\center{          		
-            \includegraphics[width=0.65\textwidth]{./Figs/01-junior-metodos-quantitativos.png}
+            \includegraphics[width=0.90\textwidth]{./Figs/01-junior-metodos-quantitativos.png}
           	\caption{Tipos de métodos quantitativos. Fonte: \cite{Junior2007}}.
           	\label{fig:metodosQuantitativos}}
           \end{figure}
@@ -92,8 +95,9 @@ O comportamento dos dados deste trabalho, apesar de ter uma distribuição de da
 \section{Redes Neurais Artificiais}
 %\TODO{o comando subcaption* nas figuras está acarretando na numeração incorreta. Veja o que fiz nas figuras anteriores e replique para as demais}
 
-As redes neurais, ou redes neurais artificiais  para sermos mais precisos, representam uma tecnologia que tem raízes em muitas disciplinas: neurociência, matemática, estatística, física, ciência da computação e engenharia" \cite{Haykin1994}. 
-De modo geral as redes neurais fazem parte da grande área de conhecimento denominada Inteligência Artificial (IA), termo cunhado em 1956 por John McCarthy, \TODO {CITAR :  Andreas Kaplan; Michael Haenlein (2018) Siri, Siri in my Hand, who's the Fairest in the Land? On the Interpretations, Illustrations and Implications of Artificial Intelligence, Business Horizons, 62(1), https://www.sciencedirect.com/science/article/pii/S0007681318301393 }
+As redes neurais, ou redes neurais artificiais  para sermos mais precisos, representam uma tecnologia que tem raízes em muitas disciplinas: neurociência, matemática, estatística, física, ciência da computação e engenharia \cite{Haykin1994}. 
+De modo geral as redes neurais fazem parte da grande área de conhecimento denominada Inteligência Artificial (IA), termo cunhado em 1956 por John McCarthy \cite{kaplan2019siri}.
+
 
 "A inteligência artificial é o ramo da ciência da computação que se ocupa do comportamento inteligente." \cite{Luger2004}. Sistemas de inteligência artificial buscam então resolver funções e problemas que seres humanos conseguem resolver melhor do que máquinas convencionais, usando sua capacidade de abstração e aprendizagem com o erro. De uma forma geral, a IA pode ser dividida em diversas subcategorias, a descrição completa de todas as subcategorias está fora do escopo deste trabalho, que tem como foco o desenvolvimento da subcategoria de redes neurais artificiais, e dos modelos de perceptron de múltiplas camadas e das redes recorrentes GRU.
 
@@ -114,12 +118,12 @@ Uma rede neural pode não produzir uma resposta esperada, resolvendo erroneament
               \caption{Neuronio Biológico} \subcaption*{Fonte:  https://pt.khanacademy.org/science/biology/human-biology/\\neuron-nervous-system/v/anatomy-of-a-neuron.}\label{fig:NeuronioBiológico}}
             \end{figure}
 
-Um neurônio biológico figura \ref{fig:NeuronioBiológico} trata as informações recebidas por meio de seus dendritos e processa-as em seu corpo celular, tal reação à esses estímulos recebidos gera um sinal de saída como resposta aos estímulos, enviado através do axônio. Esse estímulo é repassado como sinal de entrada, através de outros neurônios por meio de seus dendritos, e o ciclo se repete em uma vasta rede.
+Um neurônio biológico (Figura \ref{fig:NeuronioBiológico}) trata as informações recebidas por meio de seus dendritos e processa-as em seu corpo celular, tal reação à esses estímulos recebidos gera um sinal de saída como resposta aos estímulos, enviado através do axônio. Esse estímulo é repassado como sinal de entrada, através de outros neurônios por meio de seus dendritos, e o ciclo se repete em uma vasta rede.
 Controlando essas conexões, pontos de contato entre a resposta de um neurônio e a entrada de outro, existem as sinapses. Elas funcionam como agentes que permitem a interação acontecer ou inibem, e são acionadas por um conjunto somatório de estímulos. Se tal somatório de estímulos for satisfatório, elas permite a transmissão de sinal elétrico pelo axônio até o dendrito de um neurônio vizinho, formando um ciclo de aprendizado em uma rede neural biológica.
 
-Fazendo um breve estudo sobre neurociência e analisando um trabalho analítico sobre a plasticidade cerebral, encontra-se o trabalho de \cite{Muhammad2014} que demonstra que a propriedade fundamental do cérebro é a sua capacidade de mudar com uma grande variedade de experiências, inclusive lesões que provocam perdas de neurônios, abordando princípios de plasticidade cerebral, e mostra também que a capacidade de aprendizado de mamíferos que sofreram uma redução de neurônios causada por lesões, pode ser restaurada não somente pela recuperação desses neurônios perdidos, mas sim por novas conexões e sinapses entre outros neurônios, evidenciando que durante a vida destes seres, sua topologia de conexão de neurônios cerebrais permanece em constante reajuste.
+Fazendo um breve estudo sobre neurociência e analisando um trabalho analítico sobre a plasticidade cerebral, encontra-se o trabalho de \citeonline{Muhammad2014} que demonstra que a propriedade fundamental do cérebro é a sua capacidade de mudar com uma grande variedade de experiências, inclusive lesões que provocam perdas de neurônios, abordando princípios de plasticidade cerebral, e mostra também que a capacidade de aprendizado de mamíferos que sofreram uma redução de neurônios causada por lesões, pode ser restaurada não somente pela recuperação desses neurônios perdidos, mas sim por novas conexões e sinapses entre outros neurônios, evidenciando que durante a vida destes seres, sua topologia de conexão de neurônios cerebrais permanece em constante reajuste.
 
-E também em um experimento recente realizado no artigo \cite{Fapesp192}, é evidenciado que o cérebro humano possui atualmente 86 bilhões de neurônios interconectados, e que sua capacidade de aprendizado e habilidades evolutivas também vêm aumentando em conjunto com seu número de neurônios e topologia de rede neural biológica, e que há 30 milhões de anos atrás nós homos sapiens, tínhamos apenas 2,5 bilhões de neurônios.
+E também em um experimento recente realizado no artigo \citeonline{Fapesp192}, é evidenciado que o cérebro humano possui atualmente 86 bilhões de neurônios interconectados, e que sua capacidade de aprendizado e habilidades evolutivas também vêm aumentando em conjunto com seu número de neurônios e topologia de rede neural biológica, e que há 30 milhões de anos atrás nós homos sapiens, tínhamos apenas 2,5 bilhões de neurônios.
 
 %\paragraph*{Neuronio Artifical - MCP}
 Warren McCulloch e Walter Pitts em 1942 observando o neurônio biológico iniciam a busca de um modelo computacional do mesmo. McCuloch era psiquiatra e neuroanatomista e passou cerca de 20 anos refletindo e estudando sobre a representação do sistema nervoso, em 1942 ele convidou Pitts, que era matemático, para fazer parte das suas pesquisas. Em 1943 lançaram o artigo "A Logical Calculus of the Ideas Immanent in Nervous Activity." chegando em um modelo matemático do neurônio artificial. 
@@ -165,7 +169,7 @@ Então em 1969, Marvin Mjinsky e Seymour Papert realizaram uma publicação comp
   	  	  \caption{Problemas Linearmente Não Separáveis. Múltiplas Soluções.}  \label{fig:doisPerceptrons}}
   	  	   \end{figure}
 
-            A rede perceptron , conforme demonstrado no trabalho de\cite{Flavia2014}, possui apenas uma camada de entrada e saída, a saída utiliza como função de ativação a função degrau $ \delta(.) $ que define quando o neurônio emitirá o sinal lógico 1 ou quando emitirá o sinal lógico 0.
+            A rede perceptron , conforme demonstrado no trabalho de\citeonline{Flavia2014}, possui apenas uma camada de entrada e saída, a saída utiliza como função de ativação a função degrau $ \delta(.) $ que define quando o neurônio emitirá o sinal lógico 1 ou quando emitirá o sinal lógico 0.
 
             O sinal de saída do perceptron entende-se então por:
             $y_j= \delta(\sum_{i=1}^{n}x_i W_{ji}+b_j)$
@@ -182,7 +186,7 @@ Então em 1969, Marvin Mjinsky e Seymour Papert realizaram uma publicação comp
               \includegraphics[width=0.65\textwidth]
               {./Figs/08-perceptron.png}
            
-            \caption{Neurônio Artificial Perceptron.} \subcaption*{ retirado de \cite{Haykin1994}} \label{fig:perceptron} }
+            \caption{Neurônio Artificial Perceptron.} \subcaption*{ retirado de \citeonline{Haykin1994}} \label{fig:perceptron} }
             \end{figure}
 			
 		     Em algumas literaturas o bias pode ser reduzido a um peso $W_0$ com entrada $X_0$ fixo em 1 no neurônio, a representação gráfica da topologia pode mudar, mas no somatório de saída, o calculo continua o mesmo.
@@ -223,22 +227,23 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
   	    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 \subsection{Rede Perceptrons Múltiplas Camadas - MLP}
   	       
-  	       A solução base para se combinar 2 ou mais camadas de perceptrons a fim de se resolver um problema com a combinação de 2 ou mais soluções lineares, é a utilização de um perceptron combinador de sinal de saída, já que cada perceptron pode ter múltiplas entradas e somente uma saída. Dessa forma as redes neurais vão formando colunas de perceptrons interconectados. Cada coluna é denominada uma camada oculta da rede neural. A ultima camada deve ter o número de perceptrons correspondente ao número de saídas desejadas. Na figura \ref{fig:MLP} encontra-se uma rede neural com 1 camada oculta e 2 saídas.
+  	       A solução base para se combinar 2 ou mais camadas de perceptrons a fim de se resolver um problema com a combinação de 2 ou mais soluções lineares, é a utilização de um perceptron combinador de sinal de saída, já que cada perceptron pode ter múltiplas entradas e somente uma saída. Dessa forma as redes neurais vão formando colunas de perceptrons interconectados. Cada coluna é denominada uma camada oculta da rede neural. A ultima camada deve ter o número de perceptrons correspondente ao número de saídas desejadas. Na figura \ref{fig:MLP} encontra-se uma rede neural com 2 camadas ocultas e a camada de saída possui 3 neurônios que emitem 3 sinais distintos de saídas.
   	       
   	       \begin{figure}[H]
   	       	\center{
   	       		\includegraphics[width=0.65\textwidth]
   	       		{./Figuras/haykins_rede_MLP.PNG}
   	       	
-  	       	\caption{Rede de perceptrons com múltiplas camadas, Fonte: \cite{Haykin1994}\label{fig:MLP}}
+  	       	\caption{Rede de perceptrons com múltiplas camadas, Fonte: \cite{Haykin1994}\label{fig:MLP}
+  	       	}}
   	       \end{figure}
          
-  	       Esta rede denominada MLP (Multilayer Perceptron) possui uma camada de entrada onde quadrado ilustrado na primeira coluna da \ref{fig:MLP} representa um parâmetro do problema a ser analisado.
+  	       Nesta rede denominada MLP (Multilayer Perceptron) a camada de entrada é representada por uma coluna de ícones quadrados na figura \ref{fig:MLP} , que representam os parâmetros do problema a ser analisado, e tais parâmetros passam pelas transformações e cálculos realizados pela rede neural gerando as soluções do problema a ser resolvido, como sinais de saída.
   	      
-  	       Nesta camada oculta os neurônios possuem geralmente uma função de ativação, e conceitualmente no mínimo 1 neurônio desta primeira camada oculta deve receber no mínimo 2 conexões de entrada. E uma camada de saída, na borda à direita, com o número de neurônios correspondente ao número de soluções buscadas.
+  	       Na primeira camada oculta os neurônios possuem geralmente uma função de ativação, e conceitualmente no mínimo 1 neurônio desta primeira camada oculta deve receber no mínimo 2 parâmetros de entrada.
   	       
             % \paragraph*{Treino e Validação da MLP}
-            	O conjunto de dados de entrada na rede MLP supervisionada, deve ser dividido em 2 partes principais, Treinamento e Validação. É importante salientar que as observações de ambos os conjuntos devem originar do mesmo conjunto de dados para representar o mesmo problema.
+            	O conjunto de dados de entrada na rede MLP, do tipo supervisionada, deve ser dividido em 2 partes principais, Treinamento e Validação. É importante salientar que as observações de ambos os conjuntos devem originar do mesmo conjunto de dados para representar o mesmo problema.
             	
             	O conjunto de dados da validação e treino somados devem formar exatamente o conjunto original, sem informações excedentes ou em falta.
             	
@@ -295,7 +300,7 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
           	\caption{Rede Neural Perceptron de Múltiplas Camadas. Fonte:\cite{Lopes2008}.}\label{fig:mlp-lopes}}
            \end{figure}
             
-           Conforme  o trabalho realizado por \cite{Rocha2011} com neurônios artificiais para prever a demanda do R.U da UNESP, envolve apenas uma única camada de entrada e uma segunda camada para saída, porém com uma diversidade maior de variáveis de entrada correlacionadas com o consumo do restaurante. 
+           Conforme  o trabalho realizado por \citeonline{Rocha2011} com neurônios artificiais para prever a demanda do R.U da UNESP, envolve apenas uma única camada de entrada e uma segunda camada para saída, porém com uma diversidade maior de variáveis de entrada correlacionadas com o consumo do restaurante. 
            \begin{figure}[H]
           	\center{
           		\includegraphics[width=0.65\textwidth]
@@ -304,9 +309,9 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
           	\caption{Rede Neural Perceptron de Múltiplas Camadas. Fonte: \cite{Rocha2011}} \label{fig:rnaRocha}}
            \end{figure}
          
-            Ambos os modelos possuem topologia de uma camada oculta para entrada dos dados, e uma camada de saída. que de acordo com  a análise de \cite{Braga2000}  é citado que através de uma análise de Cybenko, uma camada intermediária é o suficiente para aproximar qualquer função contínua e 2 camadas intermediárias são suficientes para aproximar qualquer função matemática, e devendo ser observado o fato de que em alguns casos, a utilização de 2 ou mais camadas pode facilitar o treinamento da rede, porém a utilização de um grande número de camadas intermediárias ou ocultas, é inviável, pois em cada uma delas a estimativa do erro se trata de uma estimativa da estimativa do erro da camada anterior, e este cascateamento de estimativas pode se tornar menos preciso à medida que cresce.
+            Ambos os modelos possuem topologia de uma camada oculta para entrada dos dados, e uma camada de saída. que de acordo com  a análise de \citeonline{Braga2000}  é citado que através de uma análise de Cybenko, uma camada intermediária é o suficiente para aproximar qualquer função contínua e 2 camadas intermediárias são suficientes para aproximar qualquer função matemática, e devendo ser observado o fato de que em alguns casos, a utilização de 2 ou mais camadas pode facilitar o treinamento da rede, porém a utilização de um grande número de camadas intermediárias ou ocultas, é inviável, pois em cada uma delas a estimativa do erro se trata de uma estimativa da estimativa do erro da camada anterior, e este cascateamento de estimativas pode se tornar menos preciso à medida que cresce.
             
-          Em conformidade com o trabalho de  \cite{Flavia2014}, o número de neurônios na primeira camada oculta é proporcional à dimensão do espaço de observação. Logo em modelos preditivos de demanda, supracitados, observa-se que no mínimo, na primeira camada oculta, é utilizado um número de neurônios igual ao número de variáveis que influenciam no dado preditivo.
+          Em conformidade com o trabalho de  \citeonline{Flavia2014}, o número de neurônios na primeira camada oculta é proporcional à dimensão do espaço de observação. Logo em modelos preditivos de demanda, supracitados, observa-se que no mínimo, na primeira camada oculta, é utilizado um número de neurônios igual ao número de variáveis que influenciam no dado preditivo.
             
             \paragraph*{Parâmetros de treino da MLP Backpropagation}
             A definição da função $\delta$ de ativação interfere na linearidade  do modelo a ser analisado, sendo a função sigmoide a mais popular na literatura. 
@@ -340,7 +345,7 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
             
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \paragraph*{Fase Feedbackward}
-            O Processo de reajuste dos pesos sinápticos com o objetivo de atingir a minimalização do erro quadrático da validação, é feito pelo método do Gradiente Descendente, reajustando os pesos sinápticos $Wi_{n}(j)$ correspondente à cada neurônio $j$ da rede, para um valor $\Delta Wi_{n}(j)$, da seguinte forma:\\
+            O Processo de reajuste dos pesos sinápticos com o objetivo de atingir a minimização do erro quadrático da validação, é feito pelo método do Gradiente Descendente, reajustando os pesos sinápticos $Wi_{n}(j)$ correspondente à cada neurônio $j$ da rede, para um valor $\Delta Wi_{n}(j)$, da seguinte forma:\\
             $\Delta Wi_{n}(j) = \eta*\delta_j*Xi_{n}(j)$\\
             
             \subparagraph*{Regra $\delta$ para neurônio de saída}
@@ -368,13 +373,15 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
         
         Existem algoritmos populares que otimizam a convergência do reajuste dos pesos no treino de backpropagation. ganhando destaque o otimizador ADAM. A vantagem deste otimizador é a fusão das melhores características de 2 otimizadores o Momentum e RMSProp. Momentum acelera o reajuste dos pesos em busca dos erros globais mínimos, e RMSProp impede a busca na direção das oscilações.\newline
          Adam ou Adaptive Moment otimization combina estas 2 heurísticas. O coeficiente de aprendizado, ou conhecido como "learning rate", popular para este processo de otimização tem valor definido por uma constante alpha, de valor escalar 0.001.
-        Esta constante tem produzido resultados positivos em problemas de forecast (predições) de acordo com o popular ebook Machine Learning Mastery fundamentado pelo autor \cite{MLM}. Na figura \ref{fig:otimizadores} o eixo y "Training cost" demonstra que quanto menor o custo de treinamento, maior a velocidade de convergência ao reajuste ideal dos pesos, e neste caso é notório a vantagem do otimizador Adam sobre os demais à medida do avanço no número de iterações.
+        Esta constante tem produzido resultados positivos em problemas de forecast (predições) de acordo com o popular ebook Machine Learning Mastery fundamentado pelo \citeonline{MLM}. Na Figura \ref{fig:otimizadores} o eixo y "Training cost" demonstra que quanto menor o custo de treinamento, maior a velocidade de convergência ao reajuste ideal dos pesos, e neste caso é notório a vantagem do otimizador Adam sobre os demais à medida do avanço no número de iterações.
+        
         \begin{figure}[H]
         	\center{
         		\includegraphics[width=0.80\textwidth]
         		{./Figuras/MLM/optimizers.png}
-        	
-        	\caption{Comparison of Adam to Other Optimization Algorithms Training a Multilayer Perceptron Fonte : \cite{MLM} }} \label{fig:otimizadores}
+        	%Roger acho que é bom ser em portugues
+        	\caption{Comparison of Adam to Other Optimization Algorithms Training a Multilayer Perceptron Fonte : \cite{MLM} }} 
+        	\label{fig:otimizadores}
         \end{figure}
             
             \subparagraph{Validação de treino}
@@ -387,7 +394,7 @@ Esse reajuste de pesos $Wi$ denomina-se taxa de aprendizagem, $\alpha$ que pode 
                 Quando a curva do $m.s.e$ estiver sendo realizada, não se saberá o ponto ótimo de parada, até que ele comece a ser superado, logo é importante arbitrar um número $l$ para salvar os parâmetros das $l$ épocas anteriores, em busca do ponto ótimo de parada, conforme figura \ref{fig:validacaoCruzada}
         
         \subsection{Redes Recorrentes: O modelo GRU}
-         	De acordo com  o livro Deep Learning Book desenvolvido pela  \cite{DLB}, no capítulo de arquitetura de redes gated recurrent unit (GRU), as redes recorrentes GRU são uma adaptação das redes LSTM (Long Short Term Memory) que consequentemente é uma melhoria das redes recorrentes clássicas encontradas na literatura, pois utilizam elementos que decidem o valores de saída das unidades, e que podem memorizar informações de entrada dadas por um grande intervalo de tempo, sem sofrer dissipação destes valores (resolvendo um problema clássico de memória de curto prazo em redes recorrentes), estes elementos de decisão e memorização dos valores dos gradientes de reajustes dos pesos são ilustrados como "reset gate" e "update gate" na figura \ref{fig:gru-arch}. Portanto este modelo, especificamente o GRU, foi viável na aplicação deste trabalho para a memorização da sazonalidade semestral e anual dos dados do restaurante universitário.
+         	De acordo com  o livro Deep Learning Book desenvolvido pela  \citeonline{DLB}, no capítulo de arquitetura de redes gated recurrent unit (GRU), as redes recorrentes GRU são uma adaptação das redes LSTM (Long Short Term Memory) que consequentemente é uma melhoria das redes recorrentes clássicas encontradas na literatura, pois utilizam elementos que decidem o valores de saída das unidades, e que podem memorizar informações de entrada dadas por um grande intervalo de tempo, sem sofrer dissipação destes valores (resolvendo um problema clássico de memória de curto prazo em redes recorrentes), estes elementos de decisão e memorização dos valores dos gradientes de reajustes dos pesos são ilustrados como "reset gate" e "update gate" na figura \ref{fig:gru-arch}. Portanto este modelo, especificamente o GRU, foi viável na aplicação deste trabalho para a memorização da sazonalidade semestral e anual dos dados do restaurante universitário.
          	
             \begin{figure}[H]
             	\center{
