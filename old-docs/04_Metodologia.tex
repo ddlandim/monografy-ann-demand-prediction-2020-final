@@ -10,8 +10,10 @@
         \item Conclusões sobre os resultados e seleção do melhor modelo.
     \end{itemize}
     
+    \section{Área de estudo}
+    descrever a faculdade e o restaurante e talvez colocar uma imagem dele cheio pra contextualizar melhor
 	\section{Pré-processamento}
-	    Na etapa de pré-processamento dos dados, além da obtenção dos dados, também é realizada a etapa de transformação dos dados em séries temporais, normalização com a remoção de outliers, e aplicação da escala 0 a 1, para que todos os dados correspondam à um mesmo domínio de aprendizado.
+	    Na etapa de pré-processamento dos dados, além da obtenção dos dados, também é realizada a etapa de transformação dos dados em séries temporais, normalização com a remoção de \textit{outliers}, e aplicação da escala 0 a 1, para que todos os dados correspondam à um mesmo domínio de aprendizado.
 	    Após a conclusão destas etapas, o conjunto de dados foi preparado para as fases experimentais 1 e 2, que realizaram uma divisão do conjunto final de dados em intervalos temporais distintos.
 	    
 	    \subsection{Dados endógenos} \label{subsec:coleta_endogenos}
@@ -148,7 +150,7 @@
             O conjunto de dados contemplando o período de 2017 a 2019, foi dividido em conjunto de treino, validação e teste da seguinte maneira: 
             
             \paragraph{1º Fase com validação no 1º semestre de 2018 e teste no 1º semestre de 2019}
-                Neste roteiro, o semestre de validação que compõe o conjunto de dados para o treino backpropagation das redes neurais contempla o primeiro semestre de 2018 e o conjunto de teste contempla o primeiro semestre de 2019.
+                Neste roteiro, o semestre de validação que compõe o conjunto de dados para o treino \textit{backpropagation} das redes neurais contempla o primeiro semestre de 2018 e o conjunto de teste contempla o primeiro semestre de 2019.
                 Os dados de 2017 contemplando o 1º e 2º semestre, e 2018 contemplando o 2º semestre, foram usados para treino. Os resultados obtidos nesta divisão foram usados para validar a hipótese de que os modelos aprendem especificamente a sazonalidade de consumo no primeiro semestre, se saindo melhor nos testes realizados no primeiro semestre de 2019, em comparação aos outros modelos treinados com validação no ano todo de 2018.
                 Portanto, o conjunto de dados da primeira fase contempla o seguinte domínio:
             \begin{itemize}
@@ -181,7 +183,7 @@
             
 	\subsection{Hiperparâmetros : Função de ativação e otimizador}
         Conforme fundamentado no capítulo \ref{cap:teoria} na seção "Perceptron", a função de ativação dá a capacidade do perceptron, quando conectado em rede, de resolver problemas lineares e não lineares, agregando adaptação e improviso ao resolver programas que não estão contidos em seus dados de alimentação.
-        Portanto para as camadas ocultados das redes neurais MLP desenvolvidas será aplicada a função ReLu e para o neurônio de saída será aplicada a função linear, e o otimizador de treino realiza a função de otimizar o tempo de convergência do reajuste dos pesos à valores ideais, sendo escolhido o otimizador ADAM com taxa de aprendizado defino em 0,001.
+        Portanto para as camadas ocultados das redes neurais MLP desenvolvidas será aplicada a função ReLu e para o neurônio de saída será aplicada a função linear, e o otimizador de treino realiza a função de otimizar o tempo de convergência do reajuste dos pesos à valores ideais, sendo escolhido o otimizador ADAM com taxa de aprendizado definido em 0,001.
 
     \section{Teste e Métricas}
        A principal métrica de avaliação dos modelos é a Raiz do Erro Quadrático Médio ou em inglês (Root Mean Squared Error - RMSE).
